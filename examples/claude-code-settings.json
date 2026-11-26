@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python ~/.claude/hooks/preference_enforcer.py" },
+          { "type": "command", "command": "python ~/.claude/hooks/skill_check.py" },
+          { "type": "command", "command": "python ~/.claude/hooks/task_ledger_reminder.py" }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python ~/.claude/hooks/file_indexer.py --quiet --if-stale 12" }
+        ]
+      }
+    ]
+  }
+}
